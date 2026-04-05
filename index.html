@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>veXra Tuning | Realizing Dreams</title>
+    <style>
+        /* Grund-Design */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #0b0b0b; color: #fff; scroll-behavior: smooth; }
+        header {
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 25px; background: #000; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 2px solid #ff0000;
+        }
+        .logo { font-size: 26px; font-weight: bold; color: #ff0000; letter-spacing: 3px; }
+
+        /* Navigation */
+        .menu-icon { cursor: pointer; display: flex; flex-direction: column; gap: 5px; z-index: 1001; }
+        .menu-icon span { width: 30px; height: 3px; background: #fff; transition: 0.3s; }
+        .nav-overlay {
+            position: fixed; top: 0; right: -100%; width: 260px; height: 100%;
+            background: #111; display: flex; flex-direction: column; 
+            padding: 80px 30px; transition: 0.4s; z-index: 1000;
+        }
+        .nav-overlay.active { right: 0; }
+        .nav-overlay a { color: #fff; text-decoration: none; font-size: 20px; margin-bottom: 25px; font-weight: bold; }
+
+        /* Sektionen */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        h2 { border-left: 5px solid #ff0000; padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
+
+        /* Historie */
+        .history-text { line-height: 1.8; color: #ccc; font-size: 1.05rem; }
+        .history-text strong { color: #fff; }
+
+        /* Produkte */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: #161616; border-radius: 10px; padding: 25px; border: 1px solid #333; transition: 0.3s; }
+        .product-card:hover { border-color: #ff0000; transform: translateY(-5px); }
+        .price { font-size: 1.3rem; font-weight: bold; color: #ff0000; margin: 10px 0; }
+        
+        select { width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 5px; margin-bottom: 20px; }
+        .cart-btn { background: #ff0000; color: #fff; border: none; padding: 15px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; }
+
+        /* Warenkorb */
+        #cart-section { background: #0f0f0f; border-top: 2px solid #ff0000; padding: 60px 20px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333; }
+        .delete-btn { background: none; border: none; cursor: pointer; font-size: 1.3rem; }
+        .total-price { font-size: 1.8rem; font-weight: bold; color: #ff0000; text-align: right; margin: 30px 0; }
+
+        /* Bestellung & Kontakt */
+        .order-box { background: #1a1a1a; border: 1px dashed #ff0000; padding: 30px; text-align: center; border-radius: 10px; }
+        .contact-link { color: #ff0000; text-decoration: none; font-weight: bold; margin: 0 15px; font-size: 1.1rem; }
+
+        footer { text-align: center; padding: 40px; color: #444; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">veXra</div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<nav class="nav-overlay" id="navOverlay">
+    <a href="#home" onclick="toggleMenu()">Startseite</a>
+    <a href="#history" onclick="toggleMenu()">Unsere Geschichte</a>
+    <a href="#parts" onclick="toggleMenu()">3D Parts</a>
+    <a href="#cart-section" onclick="toggleMenu()">Warenkorb</a>
+    <a href="#contact" onclick="toggleMenu()">Kontakt</a>
+</nav>
+
+<!-- STARTSEITE / HERO -->
+<section id="home" style="height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #222 0%, #000 100%);">
+    <div>
+        <h1 style="font-size: 3.5rem; color: #ff0000; margin: 0;">veXra TUNING</h1>
+        <p style="font-size: 1.2rem; letter-spacing: 2px;">PERFEKTION IN JEDEM DRUCK</p>
+    </div>
+</section>
+
+<!-- UNSERE GESCHICHTE -->
+<section id="history" class="section">
+    <h2>Unsere Geschichte</h2>
+    <div class="history-text">
+        <p><strong>Gegründet im Jahr 2026</strong>, trat veXra an, um den 3D-Druck-Markt auf ein völlig neues Level zu heben. Die Wurzeln von veXra liegen jedoch viel tiefer: In einer kleinen Garage, in der ich über Jahre hinweg an meinem eigenen Moped geschraubt und gebastelt habe.</p>
+        <p>Ich kannte das Problem selbst – spezielle Tuning-Teile waren oft unauffindbar und Sonderwünsche fast unmöglich umzusetzen. Genau das wollte ich ändern. veXra steht heute für sämtliche 3D-Tuning-Teile, die mit höchster <strong>Feinfühligkeit und Perfektion</strong> gefertigt werden.</p>
+        <p>Bei veXra geht es nicht um den großen Umsatz, sondern um die <strong>Verwirklichung von Träumen</strong>. Unsere Preise sind so kalkuliert, dass sie so nah wie möglich an den Materialkosten liegen. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft, um Produkte genau nach euren Vorstellungen zu liefern.</p>
+    </div>
+</section>
+
+<!-- SHOP / 3D PARTS -->
+<section id="parts" class="section">
+    <h2>3D Parts</h2>
+    <div class="product-grid">
+        <article class="product-card">
+            <h3>Ansaugmuffe Schwarz</h3>
+            <div class="price">14.99 €</div>
+            <p style="color: #aaa; font-size: 0.9rem;">Strömungsoptimiert für maximalen Airflow. Präziser 3D-Druck für perfekte Passform an deinem Setup.</p>
+            <select id="color-muffe">
+                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option><option value="Gelb">Gelb</option>
+            </select>
+            <button class="cart-btn" onclick="addToCart('Ansaugmuffe', 14.99, 'color-muffe')">In den Warenkorb</button>
+        </article>
+
+        <article class="product-card">
+            <h3>Kugellampe / Tittenlampe</h3>
+            <div class="price">25.99 €</div>
+            <p style="color: #aaa; font-size: 0.9rem;">Kult-Design als B-Ware. Voll funktionsfähig mit charmanten optischen Unikats-Merkmalen.</p>
+            <select id="color-lampe">
+                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option><option value="Gelb">Gelb</option>
+            </select>
+            <button class="cart-btn" onclick="addToCart('Kugellampe', 25.99, 'color-lampe')">In den Warenkorb</button>
+        </article>
+    </div>
+</section>
+
+<!-- WARENKORB -->
+<section id="cart-section">
+    <div class="section" style="padding: 0;">
+        <h2 style="color: #ff0000;">Warenkorb</h2>
+        <div id="cart-list"><p style="color: #666;">Dein Warenkorb ist leer.</p></div>
+        <div class="total-price" id="total-price">Gesamt: 0.00 €</div>
+
+        <div class="order-box">
+            <p>Um die Bestellung aufzunehmen, schreibe uns einfach eine E-Mail oder eine Instagram DM:</p>
+            <a href="mailto:vexra.tuning@gmail.com" class="contact-link">E-MAIL</a>
+            <a href="https://instagram.com" target="_blank" class="contact-link">INSTAGRAM</a>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:vexra.tuning@gmail.com" style="color:#ff0000; font-weight:bold;">vexra.tuning@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com" target="_blank" style="color:#ff0000; font-weight:bold;">@2takt_ben</a></p>
+</section>
+
+<footer>&copy; 2024 veXra Tuning - Developed with Passion</footer>
+
+<script>
+    let cart = [];
+    function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
+
+    function addToCart(name, price, selectId) {
+        const color = document.getElementById(selectId).value;
+        cart.push({ name, price, color, id: Date.now() });
+        updateCartUI();
+    }
+
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        const list = document.getElementById('cart-list');
+        const totalEl = document.getElementById('total-price');
+        let sum = 0;
+        if (cart.length === 0) { list.innerHTML = '<p style="color:#666;">Warenkorb leer.</p>'; }
+        else {
+            list.innerHTML = '';
+            cart.forEach(item => {
+                sum += item.price;
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <span><strong>${item.name}</strong> (${item.color}) - ${item.price.toFixed(2)}€</span>
+                        <button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button>
+                    </div>`;
+            });
+        }
+        totalEl.innerText = `Gesamt: ${sum.toFixed(2)} €`;
+    }
+</script>
+</body>
+</html>
