@@ -34,25 +34,30 @@
         .history-text strong { color: #fff; }
 
         /* Produkte */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: #161616; border-radius: 10px; padding: 25px; border: 1px solid #333; transition: 0.3s; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .product-card { background: #161616; border-radius: 10px; padding: 25px; border: 1px solid #333; transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { border-color: #ff0000; transform: translateY(-5px); }
-        .price { font-size: 1.3rem; font-weight: bold; color: #ff0000; margin: 10px 0; }
+        .product-img { width: 100%; height: 220px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; border: 1px solid #222; }
+        .price { font-size: 1.4rem; font-weight: bold; color: #ff0000; margin: 10px 0; }
         
-        select { width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 5px; margin-bottom: 20px; }
-        .cart-btn { background: #ff0000; color: #fff; border: none; padding: 15px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; }
+        .tech-info { font-size: 0.85rem; color: #aaa; margin: 10px 0; line-height: 1.5; background: #222; padding: 10px; border-radius: 5px; }
+        .tech-info b { color: #fff; }
+
+        select { width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 5px; margin-bottom: 20px; margin-top: auto; }
+        .cart-btn { background: #ff0000; color: #fff; border: none; padding: 15px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.2s; }
+        .cart-btn:hover { background: #cc0000; }
 
         /* Warenkorb */
         #cart-section { background: #0f0f0f; border-top: 2px solid #ff0000; padding: 60px 20px; }
         .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333; }
-        .delete-btn { background: none; border: none; cursor: pointer; font-size: 1.3rem; }
+        .delete-btn { background: none; border: none; cursor: pointer; font-size: 1.3rem; color: #ff0000; }
         .total-price { font-size: 1.8rem; font-weight: bold; color: #ff0000; text-align: right; margin: 30px 0; }
 
         /* Bestellung & Kontakt */
         .order-box { background: #1a1a1a; border: 1px dashed #ff0000; padding: 30px; text-align: center; border-radius: 10px; }
         .contact-link { color: #ff0000; text-decoration: none; font-weight: bold; margin: 0 15px; font-size: 1.1rem; }
 
-        footer { text-align: center; padding: 40px; color: #444; }
+        footer { text-align: center; padding: 40px; color: #444; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -86,7 +91,7 @@
     <div class="history-text">
         <p><strong>Gegründet im Jahr 2026</strong>, trat veXra an, um den 3D-Druck-Markt auf ein völlig neues Level zu heben. Die Wurzeln von veXra liegen jedoch viel tiefer: In einer kleinen Garage, in der ich über Jahre hinweg an meinem eigenen Moped geschraubt und gebastelt habe.</p>
         <p>Ich kannte das Problem selbst – spezielle Tuning-Teile waren oft unauffindbar und Sonderwünsche fast unmöglich umzusetzen. Genau das wollte ich ändern. veXra steht heute für sämtliche 3D-Tuning-Teile, die mit höchster <strong>Feinfühligkeit und Perfektion</strong> gefertigt werden.</p>
-        <p>Bei veXra geht es nicht um den großen Umsatz, sondern um die <strong>Verwirklichung von Träumen</strong>. Unsere Preise sind so kalkuliert, dass sie so nah wie möglich an den Materialkosten liegen. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft, um Produkte genau nach euren Vorstellungen zu liefern.</p>
+        <p>Bei veXra geht es nicht um den großen Umsatz, sondern um die <strong>Verwirklichung von Träumen</strong>. Unsere Preise sind so kalkuliert, dass sie so nah wie möglich an den Materialkosten liegen. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft.</p>
     </div>
 </section>
 
@@ -94,25 +99,58 @@
 <section id="parts" class="section">
     <h2>3D Parts</h2>
     <div class="product-grid">
+        
+        <!-- ANSAUGSTUTZEN -->
         <article class="product-card">
-            <h3>Ansaugmuffe Schwarz</h3>
+            <img src="https://pztuning24.de" alt="Ansaugstutzen 55mm" class="product-img">
+            <h3>Ansaugstutzen (55mm)</h3>
+            <div class="price">16.99 €</div>
+            <p style="color: #aaa; font-size: 0.9rem;">Optimiert für Polini PWK. Ermöglicht maximalen Durchlass direkt am Simson-Herzkasten.</p>
+            <div class="tech-info">
+                <b>Anschluss:</b> 55 mm (für PWK)<br>
+                <b>Bohrung Herzkasten:</b> Ø 50-52 mm erforderlich<br>
+                <b>Material:</b> ASA/PETG (Benzinfest)
+            </div>
+            <select id="color-stutzen">
+                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option>
+            </select>
+            <button class="cart-btn" onclick="addToCart('Ansaugstutzen 55mm', 16.99, 'color-stutzen')">In den Warenkorb</button>
+        </article>
+
+        <!-- ANSAUGMUFFE -->
+        <article class="product-card">
+            <img src="https://kultmopeds.de" alt="Ansaugmuffe 3D" class="product-img">
+            <h3>Ansaugmuffe Tuning</h3>
             <div class="price">14.99 €</div>
-            <p style="color: #aaa; font-size: 0.9rem;">Strömungsoptimiert für maximalen Airflow. Präziser 3D-Druck für perfekte Passform an deinem Setup.</p>
+            <p style="color: #aaa; font-size: 0.9rem;">Strömungsoptimierte Muffe zur Eliminierung von Verwirbelungen im Ansaugtrakt.</p>
+            <div class="tech-info">
+                <b>Anschlussweite:</b> 28mm (Standard) oder 40mm<br>
+                <b>Vorteil:</b> Glatte Innenwandung für besseren Flow<br>
+                <b>Eigenschaft:</b> Vibrationsdämpfend & Kraftstofffest
+            </div>
             <select id="color-muffe">
-                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option><option value="Gelb">Gelb</option>
+                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option>
             </select>
             <button class="cart-btn" onclick="addToCart('Ansaugmuffe', 14.99, 'color-muffe')">In den Warenkorb</button>
         </article>
 
+        <!-- TITTENLAMPE -->
         <article class="product-card">
-            <h3>Kugellampe / Tittenlampe</h3>
+            <img src="https://zeitmaschinen-shop.de" alt="Kugellampe Simson" class="product-img">
+            <h3>Tittenlampe (Kugellampe)</h3>
             <div class="price">25.99 €</div>
-            <p style="color: #aaa; font-size: 0.9rem;">Kult-Design als B-Ware. Voll funktionsfähig mit charmanten optischen Unikats-Merkmalen.</p>
+            <p style="color: #aaa; font-size: 0.9rem;">Kult-Design für die S50/S51 Optik. 3D-Druck Gehäuse mit hoher Passgenauigkeit.</p>
+            <div class="tech-info">
+                <b>Design:</b> Klassische S50-Kugelform<br>
+                <b>Halterung:</b> Passend für originale Gabelbrücken<br>
+                <b>Zustand:</b> B-Ware (Leichte Druckunebenheiten)
+            </div>
             <select id="color-lampe">
-                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option><option value="Gelb">Gelb</option>
+                <option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option>
             </select>
-            <button class="cart-btn" onclick="addToCart('Kugellampe', 25.99, 'color-lampe')">In den Warenkorb</button>
+            <button class="cart-btn" onclick="addToCart('Tittenlampe', 25.99, 'color-lampe')">In den Warenkorb</button>
         </article>
+
     </div>
 </section>
 
@@ -122,9 +160,8 @@
         <h2 style="color: #ff0000;">Warenkorb</h2>
         <div id="cart-list"><p style="color: #666;">Dein Warenkorb ist leer.</p></div>
         <div class="total-price" id="total-price">Gesamt: 0.00 €</div>
-
         <div class="order-box">
-            <p>Um die Bestellung aufzunehmen, schreibe uns einfach eine E-Mail oder eine Instagram DM:</p>
+            <p>Bestellung per E-Mail oder Instagram:</p>
             <a href="mailto:vexra.tuning@gmail.com" class="contact-link">E-MAIL</a>
             <a href="https://instagram.com" target="_blank" class="contact-link">INSTAGRAM</a>
         </div>
@@ -148,6 +185,10 @@
         const color = document.getElementById(selectId).value;
         cart.push({ name, price, color, id: Date.now() });
         updateCartUI();
+        const btn = document.querySelector(`[onclick*="${selectId}"]`);
+        btn.innerText = "Hinzugefügt! ✓";
+        btn.style.background = "#27ae60";
+        setTimeout(() => { btn.innerText = "In den Warenkorb"; btn.style.background = "#ff0000"; }, 1500);
     }
 
     function removeFromCart(id) {
@@ -164,11 +205,7 @@
             list.innerHTML = '';
             cart.forEach(item => {
                 sum += item.price;
-                list.innerHTML += `
-                    <div class="cart-item">
-                        <span><strong>${item.name}</strong> (${item.color}) - ${item.price.toFixed(2)}€</span>
-                        <button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button>
-                    </div>`;
+                list.innerHTML += `<div class="cart-item"><span><strong>${item.name}</strong> (${item.color}) - ${item.price.toFixed(2)}€</span><button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button></div>`;
             });
         }
         totalEl.innerText = `Gesamt: ${sum.toFixed(2)} €`;
