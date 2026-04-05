@@ -16,6 +16,7 @@
         .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         h2 { border-left: 5px solid #ff0000; padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
         .history-text { line-height: 1.8; color: #ccc; font-size: 1.05rem; }
+        .history-text strong { color: #fff; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .product-card { background: #161616; border-radius: 10px; padding: 25px; border: 1px solid #333; transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { border-color: #ff0000; transform: translateY(-5px); }
@@ -25,6 +26,8 @@
         select { width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 5px; margin-bottom: 20px; margin-top: auto; }
         .cart-btn { background: #ff0000; color: #fff; border: none; padding: 15px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.2s; }
         #cart-section { background: #0f0f0f; border-top: 2px solid #ff0000; padding: 60px 20px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333; }
+        .delete-btn { background: none; border: none; cursor: pointer; font-size: 1.3rem; color: #ff0000; }
         .total-price { font-size: 1.8rem; font-weight: bold; color: #ff0000; text-align: right; margin: 30px 0; }
         .order-box { background: #1a1a1a; border: 1px dashed #ff0000; padding: 30px; text-align: center; border-radius: 10px; }
         .contact-link { color: #ff0000; text-decoration: none; font-weight: bold; margin: 0 15px; font-size: 1.1rem; }
@@ -53,7 +56,9 @@
 <section id="history" class="section">
     <h2>Unsere Geschichte</h2>
     <div class="history-text">
-        <p><strong>Gegründet im Jahr 2026</strong>, trat veXra an, um den 3D-Druck-Markt auf ein völlig neues Level zu heben. Unsere Wurzeln liegen in einer kleinen Garage – wir fertigen mit höchster Präzision Tuning-Teile für deine Träume.</p>
+        <p><strong>Gegründet im Jahr 2026</strong>, trat veXra an, um den 3D-Druck-Markt auf ein völlig neues Level zu heben. Die Wurzeln von veXra liegen jedoch viel tiefer: In einer kleinen Garage, in der ich über Jahre hinweg an meinem eigenen Moped geschraubt und gebastelt habe.</p>
+        <p>Ich kannte das Problem selbst – spezielle Tuning-Teile waren oft unauffindbar und Sonderwünsche fast unmöglich umzusetzen. Genau das wollte ich ändern. veXra steht heute für sämtliche 3D-Tuning-Teile, die mit höchster <strong>Feinfühligkeit und Perfektion</strong> gefertigt werden.</p>
+        <p>Bei veXra geht es nicht um den großen Umsatz, sondern um die <strong>Verwirklichung von Träumen</strong>. Unsere Preise sind so kalkuliert, dass sie so nah wie möglich an den Materialkosten liegen. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft, um Produkte genau nach euren Vorstellungen zu liefern.</p>
     </div>
 </section>
 
@@ -65,7 +70,7 @@
             <h3>Ansaugstutzen (55mm)</h3>
             <div class="price">16.99 €</div>
             <div class="tech-info"><b>Anschluss:</b> 55 mm<br><b>Bohrung:</b> Ø 50-52 mm<br><b>Material:</b> ASA/PETG</div>
-            <select id="c1"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option></select>
+            <select id="c1"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option></select>
             <button class="cart-btn" onclick="addToCart('Stutzen', 16.99, 'c1')">In den Warenkorb</button>
         </article>
 
@@ -74,7 +79,7 @@
             <h3>Ansaugmuffe Tuning</h3>
             <div class="price">14.99 €</div>
             <div class="tech-info"><b>Anschluss:</b> 28-40 mm<br><b>Flow:</b> Strömungsoptimiert<br><b>Eigenschaft:</b> Benzinfest</div>
-            <select id="c2"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option></select>
+            <select id="c2"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option></select>
             <button class="cart-btn" onclick="addToCart('Muffe', 14.99, 'c2')">In den Warenkorb</button>
         </article>
 
@@ -83,7 +88,7 @@
             <h3>Tittenlampe (Kugellampe)</h3>
             <div class="price">25.99 €</div>
             <div class="tech-info"><b>Design:</b> Clean S50-Kugelform<br><b>Halterung:</b> Original-Maße<br><b>Zustand:</b> B-Ware</div>
-            <select id="c3"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option></select>
+            <select id="c3"><option value="Schwarz">Schwarz</option><option value="Rot">Rot</option><option value="Grau">Grau</option></select>
             <button class="cart-btn" onclick="addToCart('Lampe', 25.99, 'c3')">In den Warenkorb</button>
         </article>
     </div>
@@ -102,6 +107,12 @@
     </div>
 </section>
 
+<section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:vexra.tuning@gmail.com" style="color:#ff0000; font-weight:bold;">vexra.tuning@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com" target="_blank" style="color:#ff0000; font-weight:bold;">@2takt_ben</a></p>
+</section>
+
 <footer>&copy; 2024 veXra Tuning</footer>
 
 <script>
@@ -111,6 +122,9 @@
         const color = document.getElementById(id).value;
         cart.push({ name, price, color, id: Date.now() });
         updateUI();
+        const btn = document.querySelector(`[onclick*="${id}"]`);
+        btn.innerText = "Hinzugefügt! ✓"; btn.style.background = "#27ae60";
+        setTimeout(() => { btn.innerText = "In den Warenkorb"; btn.style.background = "#ff0000"; }, 1500);
     }
     function removeFromCart(id) { cart = cart.filter(i => i.id !== id); updateUI(); }
     function updateUI() {
@@ -122,7 +136,7 @@
             list.innerHTML = '';
             cart.forEach(item => {
                 sum += item.price;
-                list.innerHTML += `<div class="cart-item"><span><strong>${item.name}</strong> (${item.color})</span><button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button></div>`;
+                list.innerHTML += `<div class="cart-item"><span><strong>${item.name}</strong> (${item.color}) - ${item.price.toFixed(2)}€</span><button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button></div>`;
             });
         }
         total.innerText = `Gesamt: ${sum.toFixed(2)} €`;
