@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -37,9 +37,18 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .product-card { background: #161616; border-radius: 10px; padding: 25px; border: 1px solid #333; transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { border-color: #ff0000; transform: translateY(-5px); }
-        .product-img { width: 100%; height: 220px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; border: 1px solid #222; }
-        .price { font-size: 1.4rem; font-weight: bold; color: #ff0000; margin: 10px 0; }
         
+        /* Bild-Styling: Weißer Hintergrund für bessere Sichtbarkeit der schwarzen Teile */
+        .product-img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: contain; 
+            background: #ffffff; 
+            border-radius: 5px; 
+            margin-bottom: 15px; 
+        }
+        
+        .price { font-size: 1.4rem; font-weight: bold; color: #ff0000; margin: 10px 0; }
         .tech-info { font-size: 0.85rem; color: #aaa; margin: 10px 0; line-height: 1.5; background: #222; padding: 10px; border-radius: 5px; }
         .tech-info b { color: #fff; }
 
@@ -77,7 +86,7 @@
     <a href="#contact" onclick="toggleMenu()">Kontakt</a>
 </nav>
 
-<!-- STARTSEITE / HERO -->
+<!-- HERO -->
 <section id="home" style="height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #222 0%, #000 100%);">
     <div>
         <h1 style="font-size: 3.5rem; color: #ff0000; margin: 0;">veXra TUNING</h1>
@@ -90,19 +99,18 @@
     <h2>Unsere Geschichte</h2>
     <div class="history-text">
         <p><strong>Gegründet im Jahr 2026</strong>, trat veXra an, um den 3D-Druck-Markt auf ein völlig neues Level zu heben. Die Wurzeln von veXra liegen jedoch viel tiefer: In einer kleinen Garage, in der ich über Jahre hinweg an meinem eigenen Moped geschraubt und gebastelt habe.</p>
-        <p>Ich kannte das Problem selbst – spezielle Tuning-Teile waren oft unauffindbar und Sonderwünsche fast unmöglich umzusetzen. Genau das wollte ich ändern. veXra steht heute für sämtliche 3D-Tuning-Teile, die mit höchster <strong>Feinfühligkeit und Perfektion</strong> gefertigt werden.</p>
-        <p>Bei veXra geht es nicht um den großen Umsatz, sondern um die <strong>Verwirklichung von Träumen</strong>. Unsere Preise sind so kalkuliert, dass sie so nah wie möglich an den Materialkosten liegen. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft.</p>
+        <p>veXra steht heute für sämtliche 3D-Tuning-Teile, die mit höchster <strong>Feinfühligkeit und Perfektion</strong> gefertigt werden. Wir bearbeiten jede Bestellung wie eine Sonderanfertigung mit purer Leidenschaft.</p>
     </div>
 </section>
 
-<!-- SHOP / 3D PARTS -->
+<!-- PRODUKTE -->
 <section id="parts" class="section">
     <h2>3D Parts</h2>
     <div class="product-grid">
         
-        <!-- ANSAUGSTUTZEN -->
+        <!-- PRODUKT 1: ANSAUGSTUTZEN -->
         <article class="product-card">
-            <img src="https://pztuning24.de" alt="Ansaugstutzen 55mm" class="product-img">
+            <img src="stutzen.jpg" alt="Ansaugstutzen 55mm" class="product-img">
             <h3>Ansaugstutzen (55mm)</h3>
             <div class="price">16.99 €</div>
             <p style="color: #aaa; font-size: 0.9rem;">Optimiert für Polini PWK. Ermöglicht maximalen Durchlass direkt am Simson-Herzkasten.</p>
@@ -117,14 +125,14 @@
             <button class="cart-btn" onclick="addToCart('Ansaugstutzen 55mm', 16.99, 'color-stutzen')">In den Warenkorb</button>
         </article>
 
-        <!-- ANSAUGMUFFE -->
+        <!-- PRODUKT 2: ANSAUGMUFFE -->
         <article class="product-card">
-            <img src="https://kultmopeds.de" alt="Ansaugmuffe 3D" class="product-img">
+            <img src="muffe.jpg" alt="Ansaugmuffe Tuning" class="product-img">
             <h3>Ansaugmuffe Tuning</h3>
             <div class="price">14.99 €</div>
             <p style="color: #aaa; font-size: 0.9rem;">Strömungsoptimierte Muffe zur Eliminierung von Verwirbelungen im Ansaugtrakt.</p>
             <div class="tech-info">
-                <b>Anschlussweite:</b> 28mm (Standard) oder 40mm<br>
+                <b>Anschlussweite:</b> 28mm oder 40mm<br>
                 <b>Vorteil:</b> Glatte Innenwandung für besseren Flow<br>
                 <b>Eigenschaft:</b> Vibrationsdämpfend & Kraftstofffest
             </div>
@@ -134,9 +142,9 @@
             <button class="cart-btn" onclick="addToCart('Ansaugmuffe', 14.99, 'color-muffe')">In den Warenkorb</button>
         </article>
 
-        <!-- TITTENLAMPE -->
+        <!-- PRODUKT 3: TITTENLAMPE -->
         <article class="product-card">
-            <img src="https://zeitmaschinen-shop.de" alt="Kugellampe Simson" class="product-img">
+            <img src="lampe.jpg" alt="Kugellampe Simson" class="product-img">
             <h3>Tittenlampe (Kugellampe)</h3>
             <div class="price">25.99 €</div>
             <p style="color: #aaa; font-size: 0.9rem;">Kult-Design für die S50/S51 Optik. 3D-Druck Gehäuse mit hoher Passgenauigkeit.</p>
